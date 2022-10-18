@@ -53,7 +53,6 @@ export class User {
       id: this._id,
       name: this._name,
       email: this._email,
-      password: this._password,
       errand: this._errands,
     };
   }

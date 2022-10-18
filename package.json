@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "dev:db": "ts-node-dev --transpile-only src/db/growdevers.ts"
+    "dev:db": "ts-node-dev --transpile-only src/db/growdevers.ts",
+    "build": "npm install && npx tsc"
   },
   "keywords": [],
   "author": "",

@@ -54,6 +54,14 @@ export class User {
       name: this._name,
       email: this._email,
       errand: this._errands,
+      password: this._password,
+    };
+  }
+
+  toJsonId() {
+    return {
+      id: this._id,
+      name: this._name,
     };
   }
 

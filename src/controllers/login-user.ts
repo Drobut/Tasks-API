@@ -10,13 +10,10 @@ export class LoginuserController {
       (users) => users.email === email && users.password === password
     );
 
-    console.log(user);
-
     if (!user) {
-      console.log(user);
       return response.status(404).json({ error: "user not found" });
     }
 
-    return response.json(user.id);
+    return response.json(user.toJsonId());
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "dev:db": "ts-node-dev --transpile-only src/db/growdevers.ts",
-    "build": "yarn install && npx tsc"
+    "build": "npm install && npx tsc"
   },
   "keywords": [],
   "author": "",

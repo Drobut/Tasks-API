@@ -1,0 +1,20 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const create_errand_1 = require("./controllers/create-errand");
+const create_user_1 = require("./controllers/create-user");
+const delete_errand_1 = require("./controllers/delete-errand");
+const get_filter_tasks_1 = require("./controllers/get-filter-tasks");
+const get_lists_1 = require("./controllers/get-lists");
+const login_user_1 = require("./controllers/login-user");
+const update_errand_1 = require("./controllers/update-errand");
+const user_validate_1 = require("./middlewares/user-validate");
+exports.default = (app) => {
+    app.get("/", (request, response) => response.send("ESTÁ FUNCIONANDO"));
+    app.post("/user", new create_user_1.CreateUserController().create);
+    app.post("/user/:id/errand", new user_validate_1.UserValidateMiddleware().validate, new create_errand_1.CreateErrandController().creatErrand);
+    app.put("/user/:id/errand/:idErrand", new user_validate_1.UserValidateMiddleware().validate, new update_errand_1.UpdateErrandController().UpdateErrand);
+    app.delete("/user/:id/errand/:idErrand", new user_validate_1.UserValidateMiddleware().validate, new delete_errand_1.DeleteErrandController().DeleteErrand);
+    app.get("/user/:id", new user_validate_1.UserValidateMiddleware().validate, new get_lists_1.GetListController().GetErrand);
+    app.get("/user/:id/filter", new get_filter_tasks_1.FilterListController().Filter);
+    app.post("/user/login", new login_user_1.LoginuserController().LoginUser);
+};
